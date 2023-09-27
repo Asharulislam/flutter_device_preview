@@ -60,7 +60,10 @@ class DevicePreview extends StatefulWidget {
     this.tools = defaultTools,
     this.storage,
     this.enabled = true,
-    this.backgroundColor,
+    this.background = const BoxDecoration(
+        gradient: LinearGradient(
+      colors: [Color(0xFFf5f7fa), Color(0xFFc3cfe2)],
+    )),
   }) : super(key: key);
 
   /// If not [enabled], the [child] is used directly.
@@ -79,8 +82,10 @@ class DevicePreview extends StatefulWidget {
 
   /// The background color of the canvas
   ///
-  /// Overrides `theme.canvasColor`
-  final Color? backgroundColor;
+  // // /// Overrides `theme.canvasColor`
+  // final Color? backgroundColor;
+
+  final BoxDecoration background;
 
   /// The default selected device when opening device preview for the first time.
   final DeviceInfo? defaultDevice;
@@ -424,7 +429,7 @@ class _DevicePreviewState extends State<DevicePreview> {
     );
 
     return Container(
-      color: widget.backgroundColor ?? theme.canvasColor,
+      decoration: widget.background,
       padding: EdgeInsets.only(
         top: 20 + mediaQuery.viewPadding.top,
         right: 20 + mediaQuery.viewPadding.right,
