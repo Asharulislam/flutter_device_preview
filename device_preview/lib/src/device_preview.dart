@@ -85,6 +85,7 @@ class DevicePreview extends StatefulWidget {
   // // /// Overrides `theme.canvasColor`
   // final Color? backgroundColor;
 
+//gradient background
   final BoxDecoration background;
 
   /// The default selected device when opening device preview for the first time.
